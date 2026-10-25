@@ -30,7 +30,7 @@ MIN_TARGET_PCT = 0.4     # skip if target is smaller than this %
 MAX_MOVE_PCT = 8.0       # ignore bad ticks: a single 5m candle moving more than this is not real
 COOLDOWN_CANDLES = 4     # skip a stock that already broke out in the last few candles
 CAPITAL_INR = 10000      # example trade size for the cost estimate
-SEND_TEST_MESSAGE = False
+SEND_TEST_MESSAGE = True
 IGNORE_MARKET_HOURS = False   # set True only to test outside market hours
 
 # ---- Zerodha intraday (MIS) equity cost estimates, edit if your charges differ ----
