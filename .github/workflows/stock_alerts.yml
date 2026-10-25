@@ -1,0 +1,19 @@
+name: stock-alerts
+on:
+  schedule:
+    # every 5 minutes, Mon-Fri, 03:45-10:05 UTC = 09:15-15:35 IST
+    - cron: "*/5 3-10 * * 1-5"
+  workflow_dispatch:
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests yfinance
+      - run: python stock_alert.py
+        env:
+          STOCK_BOT_TOKEN: ${{ secrets.STOCK_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
